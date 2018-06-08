@@ -1,0 +1,28 @@
+
+<h3> Peliculas en esta categoria</h3>
+<center>
+ <% Pelicula.where(category: @category.id).each do |pelicula| %> 
+<table>
+	<thead>
+           <p> titulo</p>
+           <p> <%= pelicula.title %> </p>
+           <p> descripcion</p>
+           <p> <%= pelicula.description %> </p>
+           <strong>image:</strong>
+          
+            <div>
+            <%if pelicula.image.nil?%>
+             <p> no hay imagen</p>
+           <%else%>
+        
+           <p><img src="<%= pelicula.image %>" width="50" height="50"  > </img></p>
+      
+    <%end%>
+    </div>
+
+    </thead>
+</center>
+ 
+<% end %>
+</table>
+<%= link_to 'Categories', categories_path %>

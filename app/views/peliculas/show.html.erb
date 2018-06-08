@@ -1,0 +1,30 @@
+
+<p>
+  <strong>Title:</strong>
+  <%= @pelicula.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @pelicula.description %>
+</p>
+
+
+<p>
+  <strong>image:</strong>
+  
+    <div class="image-menu">
+     <%if @pelicula.image.nil?%>
+     <p> no hay imagen</p>
+        <%else%>
+        
+        <td><img src="<%= @pelicula.image %>"  width="50" height="50" > </img>
+      
+    <%end%>
+    </div>
+
+</p>
+
+
+<%= link_to 'Edit', edit_pelicula_path(@pelicula) %> |
+<%= link_to 'Back', peliculas_path %>

@@ -1,0 +1,38 @@
+			
+<%= form_with(model: pelicula, local:  true) do |form| %>
+  <% if pelicula.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(pelicula.errors.count, "error") %> prohibited this pelicula from being saved:</h2>
+
+      <ul>
+      <% pelicula.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <div class="field">
+    <%=form.label :category%>
+    <%=select_tag :category, options_for_select(@category), {'data-plugin' => 'select', prompt: 'selecciona una categoria'}%>
+   </div>
+    <div class="field">
+   
+
+   <div class="field">
+     <%= form.label :title %>
+     <%= form.text_field :title, id: :pelicula_title %>
+   </div>
+   <div class="field">
+     <%= form.label :imagen %>
+     <%= form.file_field :image, id: :pelicula_image %>
+    </div>
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :pelicula_description %>
+  </div>
+  
+ 
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

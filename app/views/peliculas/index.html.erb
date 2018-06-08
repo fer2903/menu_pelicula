@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Peliculas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Description</th>
+      <th>image</th>
+      <th>category</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+ 
+    <% @peliculas.each do |pelicula| %>
+      <tr>
+        <td><%= pelicula.title %></td>
+        <td><%= pelicula.description %></td>
+        <td><%= pelicula.category ? pelicula.category.name : 'Sin categoria asignada'%></td>
+        <td><img src="<%= pelicula.image %>" width="50" height="50"> </img></td>
+       
+        <td><%= link_to 'Show', pelicula %></td>
+        <td><%= link_to 'Edit', edit_pelicula_path(pelicula) %></td>
+        <td><%= link_to 'Destroy', pelicula, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Pelicula', new_pelicula_path %>
+<%= link_to 'New categoria', new_category_path %>
+<%= link_to 'categories', categories_path %>
+<%= link_to 'favoritas',  new_like_path%>
