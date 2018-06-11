@@ -1,14 +1,20 @@
 class PeliculasController < ApplicationController
-	before_action :set_pelicula, only: [:show, :edit, :update, :destroy, :fin]
+	before_action :set_pelicula, only: [:show, :edit, :update, :destroy, :update]
+  before_action :authenticate_user!, except: [:index]
  
 
   def index
     @peliculas = Pelicula.all
+    @user_likes = current_user.likes
   
   end
-
+   def update
+     
+   end
+   
   def show
-
+    
+    @like_exist = Like.where(pelicula: @pelicula, user: current_user) ? false : true
  
    end
    
@@ -16,6 +22,7 @@ class PeliculasController < ApplicationController
       @pelicula = Pelicula.new 
       @category = Category.all.map{|c| [ c.name, c.id ] }
     end
+
   
   
 

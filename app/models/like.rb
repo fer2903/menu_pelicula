@@ -1,3 +1,4 @@
 class Like < ApplicationRecord
-    has_many :peliculas
+  belongs_to :pelicula
+  belongs_to :user
 end

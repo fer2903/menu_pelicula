@@ -1,5 +1,10 @@
 <p id="notice"><%= notice %></p>
-
+<h1>tus peliculas favoritas</h1>
+    
+        <% @user_likes.each do |like|%>
+         <%=link_to like.pelicula.title, like.pelicula%>
+        <%end%>
+        
 <h1>Peliculas</h1>
 
 <table>

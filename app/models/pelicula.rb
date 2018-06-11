@@ -1,8 +1,7 @@
 class Pelicula < ApplicationRecord
-	belongs_to :likes
+	has_many :likes
 	belongs_to :category
-	belongs_to :users
-    mount_uploader :image, ImageUploader
+	mount_uploader :image, ImageUploader
 
 
 end

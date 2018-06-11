@@ -8,7 +8,7 @@
   <strong>Description:</strong>
   <%= @pelicula.description %>
 </p>
-
+<p><%= link_to like_text ,like_path(pelicula: @pelicula), id: 'like_link', remove: true, method: :patch%></p>
 
 <p>
   <strong>image:</strong>
